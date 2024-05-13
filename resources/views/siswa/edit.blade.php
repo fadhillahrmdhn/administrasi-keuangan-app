@@ -26,7 +26,7 @@
     </x-slot>
 
     <div class="flex justify-center items-center mt-10 container">
-        <form class="max-w-xs w-full" action="/siswa/{{ $spp->id }}" method="POST">
+        <form class="max-w-xs w-full" action="/siswa/{{ $siswa->id }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-5">
@@ -38,7 +38,7 @@
                     @if (old('user_id') == $user->id)
                     <option value="{{ $user->id }}" selected>{{ $user->name.' - '.$user->nisn }}
                     </option>
-                    @elseif($spp->user_id == $user->id)
+                    @elseif($siswa->user_id == $user->id)
                     <option value="{{ $user->id }}" selected>{{ $user->name.' - '.$user->nisn }}</option>
                     @endif
                     <option value="{{ $user->id }}">{{ $user->name.' - '.$user->nisn }}</option>
@@ -50,9 +50,9 @@
                 <select id="selecteditkelompok" name="kelompok" class="w-full" required
                     oninvalid="this.setCustomValidity('Data tidak boleh kosong')" oninput="setCustomValidity('')" />
                 <option value="">select...</option>
-                <option value="A1" {{ (old('kelompok') ?? $spp->kelompok) == 'A1' ? 'selected' : '' }}>A1</option>
-                <option value="A" {{ (old('kelompok') ?? $spp->kelompok) == 'A' ? 'selected' : '' }}>A</option>
-                <option value="B" {{ (old('kelompok') ?? $spp->kelompok) == 'B' ? 'selected' : '' }}>B</option>
+                <option value="A1" {{ (old('kelompok') ?? $siswa->kelompok) == 'A1' ? 'selected' : '' }}>A1</option>
+                <option value="A" {{ (old('kelompok') ?? $siswa->kelompok) == 'A' ? 'selected' : '' }}>A</option>
+                <option value="B" {{ (old('kelompok') ?? $siswa->kelompok) == 'B' ? 'selected' : '' }}>B</option>
                 </select>
                 @error('kelompok')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>

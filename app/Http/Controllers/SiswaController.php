@@ -32,14 +32,14 @@ class SiswaController extends Controller
             });
         }
 
-        $spps = $query->orderBy('created_at', 'desc')->paginate($pagination);
+        $siswas = $query->orderBy('created_at', 'desc')->paginate($pagination);
 
-        $spps->appends($request->only('keyword'));
+        $siswas->appends($request->only('keyword'));
 
         $tahunjaran = Spp::distinct()->pluck('tahun_ajaran')->toArray();
 
         return view('siswa.index', [
-            'spps' => $spps,
+            'siswas' => $siswas,
             'tahunajaran' => $tahunjaran
         ])->with('i', ($request->input('page', 1) - 1) * $pagination);
     }
@@ -68,15 +68,15 @@ class SiswaController extends Controller
         $validatedData['tahun_ajaran'] = $tahunSekarang . '-' . $tahunDepan;
 
         // Memeriksa apakah kelompok sudah ada untuk user_id tertentu
-        $existingSpp = Spp::where('user_id', $validatedData['user_id'])
+        $existingSiswa = Spp::where('user_id', $validatedData['user_id'])
             ->where('kelompok', $validatedData['kelompok'])
             ->exists();
 
         // Jika kelompok belum ada, simpan data
-        if (!$existingSpp) {
+        if (!$existingSiswa) {
             // Menyimpan data ke dalam database
-            $spp = Spp::create($validatedData);
-            HargaSpp::create(["spp_id" => $spp->id]);
+            $siswa = Spp::create($validatedData);
+            HargaSpp::create(["spp_id" => $siswa->id]);
             return redirect('/siswa')->with('success', 'Data berhasil ditambahkan');
         } else {
             // Jika kelompok sudah ada, kembalikan dengan pesan error
@@ -95,7 +95,7 @@ class SiswaController extends Controller
     public function edit(Spp $siswa)
     {
         return view('siswa.edit', [
-            'spp' => $siswa,
+            'siswa' => $siswa,
             'users' => User::where('is_admin', false)->get()
         ]);
     }
@@ -109,12 +109,12 @@ class SiswaController extends Controller
         $validatedData['tahun_ajaran'] = $siswa->tahun_ajaran;
 
         // Memeriksa apakah kelompok sudah ada untuk user_id tertentu
-        $existingSpp = Spp::where('user_id', $validatedData['user_id'])
+        $existingSiswa = Spp::where('user_id', $validatedData['user_id'])
             ->where('kelompok', $validatedData['kelompok'])
             ->exists();
 
         // Jika kelompok belum ada, simpan data
-        if (!$existingSpp) {
+        if (!$existingSiswa) {
             // Menyimpan data ke dalam database
             Spp::where('id', $siswa->id)->update($validatedData);
             return redirect('/siswa')->with('success', 'Data berhasil diperbarui');

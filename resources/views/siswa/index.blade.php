@@ -61,7 +61,7 @@
                 </tr>
             </thead>
             <tbody>
-                @if($spps->isEmpty())
+                @if($siswas->isEmpty())
                 <tr class="bg-white border-b   hover:bg-gray-50 ">
                     <td class="pl-2 py-3 text-center">
                         -
@@ -83,26 +83,26 @@
                 </tr>
                 @else
                 <!-- Tampilkan data pengguna -->
-                @foreach ($spps as $spp)
+                @foreach ($siswas as $siswa)
                 <tr class="bg-white border-b   hover:bg-gray-50 ">
                     <td class="pl-2 py-3 text-center">
                         {{ ++$i }}
                     </td>
                     <td scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap text-center">
-                        {{ $spp->user->name }}
+                        {{ $siswa->user->name }}
                     </td>
                     <td class="px-2 py-3 text-center">
-                        {{ $spp->user->nisn }}
+                        {{ $siswa->user->nisn }}
                     </td>
                     <td class="px-2 py-3 text-center">
-                        {{ $spp->kelompok }}
+                        {{ $siswa->kelompok }}
                     </td>
                     <td class="px-2 py-3 text-center">
-                        {{ $spp->tahun_ajaran }}
+                        {{ $siswa->tahun_ajaran }}
                     </td>
                     <td class="px-2 py-3">
                         <div class="flex justify-center items-center space-x-1">
-                            <a href={{route('siswa.edit', $spp)}}
+                            <a href={{route('siswa.edit', $siswa)}}
                                 class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300">
                                 <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -115,10 +115,10 @@
                                 Edit
                             </a>
 
-                            <form id="deleteForm{{$spp->id}}" action="/siswa/{{$spp->id}}" method="POST">
+                            <form id="deleteForm{{$siswa->id}}" action="/siswa/{{$siswa->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button onclick="confirmDelete({{$spp->id}})" type="button"
+                                <button onclick="confirmDelete({{$siswa->id}})" type="button"
                                     class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300">
                                     <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -138,72 +138,7 @@
             </tbody>
         </table>
         <div>
-            {{ $spps->links() }}
-        </div>
-    </div>
-
-
-    <!-- Main modal cetak -->
-    <div id="modal-cetak" tabindex="-1" aria-hidden="true"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full flex justify-center ">
-        <div class="relative p-4 w-full max-w-md max-h-full ">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow border border-black">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
-                    <h3 class="text-xl font-semibold text-gray-900 ">
-                        Export to Excel
-                    </h3>
-                    <button type="button"
-                        class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                        data-modal-hide="modal-cetak">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <!-- Modal body -->
-                <div class="p-4 md:p-5">
-                    <form class="space-y-4" action={{ route('spp.allexport') }} method="POST">
-                        @csrf
-                        <div>
-                            <table>
-                                <tr>
-                                    <td><label for="Selectnamasiswa"
-                                            class="block mb-2 text-sm font-medium text-gray-900">Tahun Ajaran:</label>
-                                    </td>
-                                    <td class="pl-2"> <select id="selecttahunajaran" class=" operator w-56 container"
-                                            name="tahunajaran" required
-                                            oninvalid="this.setCustomValidity('Data tidak boleh kosong')"
-                                            oninput="setCustomValidity('')">
-                                            <option value="">select...</option>
-                                            @foreach($tahunajaran as $tahun)
-                                            <option value="{{ $tahun }}">{{ $tahun }}</option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr class="h-14">
-                                    <td> <label for="Selectkelompokcetak">kelompok:</label></td>
-                                    <td class="pl-2"> <select id="selectkelompokcetak" class="operator w-56 container"
-                                            name="kelompok" required
-                                            oninvalid="this.setCustomValidity('Data tidak boleh kosong')"
-                                            oninput="setCustomValidity('')">
-                                            <option value="">select...</option>
-                                            <option value="A1">A1</option>
-                                            <option value="A">A</option>
-                                            <option value="B">B</option>
-                                        </select></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <button type="submit"
-                            class="w-1/3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center block m-auto">Export</button>
-                    </form>
-                </div>
-            </div>
+            {{ $siswas->links() }}
         </div>
     </div>
 
@@ -278,10 +213,10 @@
 
 
     <script>
-    function confirmDelete(sppId) {
+    function confirmDelete(siswaId) {
         Swal.fire({
             title: "Apakah kamu yakin?",
-            text: "semua data spp dari pengguna ini akan dihapus semua dan tidak dapat dikembalikan!",
+            text: "semua data spp dari siswa ini akan dihapus semua dan tidak dapat dikembalikan!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -290,7 +225,7 @@
             cancelButtonText: "Batal"
         }).then((result) => {
             if (result.isConfirmed) {
-                document.getElementById("deleteForm" + sppId).submit();
+                document.getElementById("deleteForm" + siswaId).submit();
             }
         });
     }
