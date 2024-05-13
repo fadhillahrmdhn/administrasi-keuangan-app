@@ -3,16 +3,6 @@
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg max-w-4xl m-auto mt-5 mb-5 container">
         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
             <div>
-                <!-- button tambah data -->
-                <a href="/spp/create"
-                    class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2">
-                    <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                    tambah data
-                </a>
 
                 <!-- button cetak -->
                 <button data-modal-target="modal-cetak" data-modal-toggle="modal-cetak" type="button"

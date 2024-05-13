@@ -121,10 +121,10 @@
             {{-- menu SPP --}}
             @if (auth()->user()->is_admin)
             {{-- admin --}}
-            {{-- <x-responsive-nav-link :href="route('spp.index')"
+            <x-responsive-nav-link :href="route('spp.index')"
                 :active="request()->routeIs('spp.index') || request()->routeIs('spp.edit')|| request()->routeIs('spp.create')|| request()->routeIs('spp.detail')|| request()->routeIs('spp.show')|| request()->routeIs('spp.detail.create')|| request()->routeIs('spp.detail.edit')">
                 {{ __('SPP') }}
-            </x-responsive-nav-link> --}}
+            </x-responsive-nav-link>
             @else
             <!-- user -->
             <x-responsive-nav-link :href="route('sppsiswa')" :active="request()->routeIs('sppsiswa')">
