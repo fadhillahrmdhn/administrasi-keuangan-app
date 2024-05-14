@@ -82,7 +82,7 @@
                                 d="M9 7V2.221a2 2 0 0 0-.5.365L4.586 6.5a2 2 0 0 0-.365.5H9Zm2 0V2h7a2 2 0 0 1 2 2v9.293l-2-2a1 1 0 0 0-1.414 1.414l.293.293h-6.586a1 1 0 1 0 0 2h6.586l-.293.293A1 1 0 0 0 18 16.707l2-2V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9h5a2 2 0 0 0 2-2Z"
                                 clip-rule="evenodd" />
                         </svg>
-                        Export data
+                        Export Data
                     </button>
                 </form>
             </div>
@@ -130,8 +130,8 @@
                     <td class="px-2 py-3 text-center">
                         @if(!empty($spp->hargaSpp->$monthName))
                         @php
-                        $formattedTotal = number_format($spp->hargaSpp->$monthName, 0, ',', '.'); // Format total dengan titik sebagai pemisah ribuan
-                    @endphp
+                        $formattedTotal = number_format($spp->hargaSpp->$monthName, 0, ',', '.'); 
+                        @endphp
                         Rp{{ $formattedTotal }}
                         @else
                         -

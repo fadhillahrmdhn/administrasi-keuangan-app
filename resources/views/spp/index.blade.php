@@ -16,7 +16,7 @@
                     </svg>
 
 
-                    Export to Excel
+                    Export Data
                 </button>
             </div>
 
@@ -119,22 +119,6 @@
 
                                 View
                             </a>
-
-                            <form id="deleteForm{{$spp->id}}" action="/spp/{{$spp->id}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button onclick="confirmDelete({{$spp->id}})" type="button"
-                                    class="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300">
-                                    <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                                        viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
-                                    </svg>
-                                    Hapus
-                                </button>
-                            </form>
                         </div>
                     </td>
                 </tr>
@@ -157,7 +141,7 @@
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
                     <h3 class="text-xl font-semibold text-gray-900 ">
-                        Export to Excel
+                        Export Data
                     </h3>
                     <button type="button"
                         class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
