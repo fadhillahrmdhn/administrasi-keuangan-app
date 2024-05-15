@@ -4,7 +4,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
             <div class="bg-green-200 overflow-hidden shadow-sm sm:rounded-lg flex justify-between items-center">
                 <div class="p-6 text-gray-900 font-robotopslap font-semibold">
+                    @if (Auth::user()->nameortu)
+                    {{ __("Assalamu'alaikum, ") . auth()->user()->nameortu }}
+                    @else
                     {{ __("Assalamu'alaikum, ") . auth()->user()->name }}
+                    @endif
 
                 </div>
                 <div class="p-6">

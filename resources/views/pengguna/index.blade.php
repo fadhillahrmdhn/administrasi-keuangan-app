@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg max-w-3xl m-auto mt-5 mb-5 container">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg max-w-4xl m-auto mt-5 mb-5 container">
         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
             <div>
                 <!-- button tambah data -->
@@ -43,6 +43,9 @@
                         No
                     </th>
                     <th scope="col" class="px-2 py-3 text-center">
+                        Orang tua siswa
+                    </th>
+                    <th scope="col" class="px-2 py-3 text-center">
                         Siswa
                     </th>
                     <th scope="col" class="px-2 py-3 text-center">
@@ -60,6 +63,9 @@
 
                 @if($users->isEmpty())
                 <tr class="bg-white border-b   hover:bg-gray-50 ">
+                    <td class="pl-2 py-3 text-center">
+                        -
+                    </td>
                     <td class="pl-2 py-3 text-center">
                         -
                     </td>
@@ -84,6 +90,9 @@
                 <tr class="bg-white border-b   hover:bg-gray-50 ">
                     <td class="pl-2 py-3 text-center">
                         {{ ++$i }}
+                    </td>
+                    <td scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap text-center">
+                        {{ $user->nameortu }}
                     </td>
                     <td scope="row" class="px-2 py-3 font-medium text-gray-900 whitespace-nowrap text-center">
                         {{ $user->name }}

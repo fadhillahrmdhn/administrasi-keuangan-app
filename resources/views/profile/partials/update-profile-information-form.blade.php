@@ -8,9 +8,15 @@
 
     <div class="mt-6 space-y-6">
 
+        <div>
+            {{-- user --}}
+            @if (!auth()->user()->is_admin)
+            <h3>Nama Orang Tua: {{ $user->nameortu }}</h3>
+            @endif
+        </div>
 
         <div>
-            <h3>Nama: {{ $user->name }}</h3>
+            <h3>Nama Siswa: {{ $user->name }}</h3>
         </div>
 
         <div>
@@ -19,6 +25,7 @@
             <h3>NISN: {{ $user->nisn }}</h3>
             @endif
         </div>
+
 
         <div>
             <h3>Email: {{ $user->email }}</h3>

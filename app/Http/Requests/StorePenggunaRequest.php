@@ -23,6 +23,7 @@ class StorePenggunaRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
+            'nameortu' => ['required', 'max:255', 'regex:/^[A-Za-z\s]+$/'],
             'nisn' => ['required', 'digits:10', 'unique:users', 'numeric', 'unique:users'],
             'email' => 'required|email:dns|unique:users'
         ];

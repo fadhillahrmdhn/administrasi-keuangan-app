@@ -29,6 +29,16 @@
         <form class="max-w-sm w-full" action="/user" method="POST">
             @csrf
             <div class="mb-5">
+                <label for="nameortu" class="block mb-2 text-sm font-medium text-gray-900">Nama Orang Tua Siswa</label>
+                <input type="text" id="nameortu" name="nameortu"
+                    class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('nameortu') border-red-500 @enderror"
+                    value="{{ old('nameortu') }}" required oninvalid="this.setCustomValidity('Data tidak boleh kosong')"
+                    oninput="setCustomValidity('')" />
+                @error('nameortu')
+                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="mb-5">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nama Siswa</label>
                 <input type="text" id="name" name="name"
                     class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('name') border-red-500 @enderror"

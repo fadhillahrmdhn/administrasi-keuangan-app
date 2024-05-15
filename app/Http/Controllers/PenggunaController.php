@@ -106,6 +106,11 @@ class PenggunaController extends Controller
         if ($request->name !== $userData->name) {
             $updateData['name'] = ['max:255'];
         }
+        
+        // Memeriksa apakah nilai name berubah
+        if ($request->nameortu !== $userData->nameortu) {
+            $updateData['nameortu'] = ['max:255'];
+        }
 
         $validatedData = $request->validate($updateData);
 
