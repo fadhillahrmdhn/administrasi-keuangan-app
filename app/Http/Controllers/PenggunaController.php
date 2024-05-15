@@ -22,7 +22,8 @@ class PenggunaController extends Controller
         if ($request->has('keyword')) {
             $users->where(function ($query) use ($request) {
                 $query->where('name', 'like', "%{$request->keyword}%")
-                    ->orWhere('nisn', 'like', "%{$request->keyword}%");
+                    ->orWhere('nisn', 'like', "%{$request->keyword}%")
+                    ->orWhere('nameortu', 'like', "%{$request->keyword}%");
             });
         }
 
