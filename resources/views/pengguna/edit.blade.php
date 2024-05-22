@@ -30,7 +30,7 @@
             @csrf
             @method('PUT')
             <div class="mb-5">
-                <label for="nameortu" class="block mb-2 text-sm font-medium text-gray-900">Nama Siswa</label>
+                <label for="nameortu" class="block mb-2 text-sm font-medium text-gray-900">Nama Orang Tua Siswa</label>
                 <input type="text" id="nameortu" name="nameortu"
                     class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 @error('nameortu') border-red-500 @enderror"
                     value="{{ old('nameortu', $user->nameortu) }}" required
