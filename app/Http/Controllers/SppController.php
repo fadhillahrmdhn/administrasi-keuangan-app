@@ -170,6 +170,12 @@ class SppController extends Controller
             'juni' => 'Juni'
         ];
 
-        return (new SppExport($spp, $months))->download('spp_'.$spp->user->name."-" . Carbon::now()->timestamp . '.xlsx');
+        if (is_null($spp->januari)) {
+            return redirect()->back()->with('errorexport', 'Data SPP pada siswa ini masih kosong');
+        } else {
+            return (new SppExport($spp, $months))->download('spp_'.$spp->user->name."-" . Carbon::now()->timestamp . '.xlsx');
+        }
+
+
     }
 }

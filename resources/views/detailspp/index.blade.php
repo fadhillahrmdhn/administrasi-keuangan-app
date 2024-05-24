@@ -221,6 +221,16 @@
     </script>
     @endif
 
+    @if (session()->has('errorexport'))
+    <script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Gagal Export Excel ',
+        text: "{{ session('errorexport') }}"
+    });
+    </script>
+    @endif
+
     @if (session()->has('errorupdate'))
     <script>
     Swal.fire({
