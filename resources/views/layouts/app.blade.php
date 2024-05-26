@@ -28,12 +28,15 @@
     {{-- select2 --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     {{--
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css"
         integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" /> --}}
-
+        <style>
+            [x-cloak] { display: none !important;}
+        </style>
 
 </head>
 
@@ -51,7 +54,7 @@
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main >
             {{ $slot }}
         </main>
     </div>
@@ -67,10 +70,11 @@
     {{-- select2 --}}
     <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
 
     {{-- select tambah data halaman detail spp--}}
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $('#selectbulan').select2({
             minimumResultsForSearch: -1
         });
@@ -78,7 +82,7 @@
     </script>
 
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $('#selectharga').select2({
             minimumResultsForSearch: -1
         });
@@ -87,13 +91,13 @@
 
     {{-- select edit data halaman spp--}}
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $('#selecteditnamasiswa').select2();
     });
     </script>
 
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $('#selecteditkelompok').select2({
             minimumResultsForSearch: -1
         });
@@ -102,20 +106,20 @@
 
     {{-- select tambah data halaman spp--}}
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $('#selectnamasiswa').select2();
     });
     </script>
 
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $('#selectkelompok').select2();
     });
     </script>
 
     {{-- select cetak laporan halaman spp --}}
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $('#selectkelompokcetak').select2({
             minimumResultsForSearch: -1
         });
@@ -123,7 +127,7 @@
     </script>
 
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
         $('#selecttahunajaran').select2();
     });
     </script>
