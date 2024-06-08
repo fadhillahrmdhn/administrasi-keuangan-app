@@ -27,9 +27,13 @@ class dashboardController extends Controller
         // Atur lokal menjadi bahasa Indonesia
         setlocale(LC_TIME, 'id_ID');
         // Mendapatkan bulan saat ini dalam bahasa Indonesia
-        $bulan_ini = Carbon::now()->locale('id')->monthName;;
+        $bulan_ini = Carbon::now()->locale('id')->monthName;
         $tanggal = now()->format('d-m-Y');
         $transaksispps =  Spp::where($bulan_ini, $tanggal)->get();
+
+
+
+
     
         return view('dashboard', [
             'tahunajaran' => $tahunajaran,
