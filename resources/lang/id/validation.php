@@ -133,6 +133,22 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'nameortu' => [
+            'required' => 'Nama orang tua wajib diisi.',
+            'string' => 'Nama orang tua harus berupa teks.',
+            'not_regex'            => 'Format nama orang tua tidak valid.',
+            'regex'                => 'Format nama orang tua tidak valid.',
+            'url'         => 'Format nama orang tua tidak valid.',
+            // tambahkan pesan lainnya yang diperlukan
+        ],
+        'name' => [
+            'required' => 'Nama siswa wajib diisi.',
+            'string' => 'Nama siswa harus berupa teks.',
+            'not_regex'            => 'Format nama siswa tidak valid.',
+            'regex'                => 'Format nama siswa tidak valid.',
+            'url'         => 'Format nama siswa tidak valid.',
+            // tambahkan pesan lainnya yang diperlukan
+        ],
     ],
 
     /*
